@@ -1,0 +1,33 @@
+﻿@using Domain.Entiteis
+@model Product
+<div class="container px-5 my-5">
+
+    <form>
+        <!-- نام محصول -->
+        <div class="form-floating mb-3">
+            <input disabled class="form-control" id="productName" dir="rtl" name="name" value="@Model.Name" type="text" required />
+            <label for="productName">نام محصول</label>
+
+        </div>
+
+        <!-- قیمت -->
+        <div class="form-floating mb-3">
+            <input disabled class="form-control" id="productPrice" dir="rtl" name="price" value="@Model.Price" type="text" step="0.01" required />
+            <label for="productPrice">قیمت</label>
+        </div>
+
+        <!-- موجودی انبار -->
+        <div  class="form-floating mb-3">
+            <input disabled class="form-control" id="productQuantity" dir="rtl" name="quantity" value="@Model.Quantity" type="text" required />
+            <label for="productQuantity">تعداد موجود در انبار</label>
+        </div>
+
+        <!-- دسته‌بندی -->
+       
+        <div class="form-floating mb-3">
+            <input disabled class="form-control" id="productCategoryName" dir="rtl" name="quantity" value="@Model.CategoryName" type="text" required />
+            <label for="productCategoryName">دسته بندی</label>
+        </div>
+        
+    </form>
+</div>

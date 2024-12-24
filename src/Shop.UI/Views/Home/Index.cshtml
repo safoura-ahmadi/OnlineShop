@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="mb-4">به صفحه اصلی خوش آمدید</h1>
+    <div class="d-flex justify-content-center gap-3">
+        <!-- دکمه مربوط به کنترلر Product -->
+        <a href="@Url.Action("Index", "Product")" class="btn btn-primary btn-lg">
+            مدیریت محصولات
+        </a>
+
+        <!-- دکمه مربوط به کنترلر Category -->
+        <a href="@Url.Action("Index", "Category")" class="btn btn-success btn-lg">
+            مدیریت دسته‌بندی‌ها
+        </a>
+    </div>
+</div>

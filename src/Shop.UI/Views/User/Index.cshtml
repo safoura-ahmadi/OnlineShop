@@ -1,0 +1,26 @@
+﻿<div class="container px-5 my-5">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert"> @TempData["ErrorMessage"] </div>
+    }
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert"> @TempData["SuccessMessage"] </div>
+    }
+    <form method="post" asp-controller="User" asp-action="Login">
+        <div class="form-floating mb-3">
+            <input class="form-control" id="username" name="username" type="text" placeholder="نام کاربری" required />
+
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="password" type="text" name="password" placeholder="رمز عبور" required />
+
+        </div>
+
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">ورود</button>
+        </div>
+        <hr />
+        <a asp-controller="User" asp-action="SignUp" style="text-decoration:none;">حساب کاربری ندارید؟ کلیک کنید</a>
+    </form>
+</div>

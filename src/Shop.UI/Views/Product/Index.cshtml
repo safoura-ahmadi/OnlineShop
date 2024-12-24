@@ -1,0 +1,39 @@
+﻿@using Domain.ModelView
+@model List<GetProductDTO>
+<div class="table-responsive">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    <br />
+    <a asp-controller="Product" asp-action="Create" class="btn btn-primary">ایجاد محصول جدید</a>
+    <br />
+
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th>نام محصول</th>
+                <th>قیمت</th>
+                <th>دسته‌بندی</th>
+                <th>مقدار</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price.ToString("C")</td> <!-- فرمت پول -->
+                    <td>@product.CategoryName</td>
+                    <td>@product.Quantity</td>
+                    <td><a asp-controller="Product" asp-action="Overview" class="btn btn-success" asp-route-id="@product.Id">پیش نمایش</a></td>
+                    <td><a asp-controller="Product" asp-action="Edit" class="btn btn-warning" asp-route-id="@product.Id">ویرایش</a></td>
+                    <td><a asp-controller="Product" asp-action="Delete" class="btn btn-danger" asp-route-id="@product.Id">حذف</a></td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

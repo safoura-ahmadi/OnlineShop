@@ -1,0 +1,49 @@
+﻿@using Domain.Entiteis
+@model Product
+<div class="container px-5 my-5">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert"> @TempData["ErrorMessage"] </div>
+    }
+    <br />
+
+    <form method="post" asp-controller="Product" asp-action="EditProduct">
+        <!-- فیلد مخفی برای Id -->
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <!-- نام محصول -->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="productName" dir="rtl" name="name" value="@Model.Name" type="text" required />
+            <label for="productName">نام محصول</label>
+        </div>
+
+        <!-- قیمت -->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="productPrice" dir="rtl" name="price" value="@Model.Price" type="number" step="0.01" required />
+            <label for="productPrice">قیمت</label>
+        </div>
+
+        <!-- موجودی انبار -->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="productQuantity" dir="rtl" name="quantity" value="@Model.Quantity" type="number" required />
+            <label for="productQuantity">تعداد موجود در انبار</label>
+        </div>
+
+        <!-- دسته‌بندی -->
+        <div class="form-floating mb-3">
+            <select class="form-control" id="categoryId" name="categoryId" required>
+                <!-- مقدار پیش‌فرض دسته‌بندی -->
+                <option value="@Model.CategoryId" selected>@Model.CategoryName</option>
+                @foreach (var category in ViewBag.Categories as IEnumerable<SelectListItem>)
+                {
+                    <option value="@category.Value">@category.Text</option>
+                }
+            </select>
+            <label for="categoryId">دسته بندی</label>
+        </div>
+
+        <!-- دکمه ارسال -->
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">اعمال تغییرات</button>
+        </div>
+    </form>
+</div>

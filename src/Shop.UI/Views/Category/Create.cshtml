@@ -1,0 +1,14 @@
+﻿<div class="container px-5 my-5">
+
+    <form method="post" asp-controller="Category" asp-action="CreateCategory">
+        <!-- نام دسته بندی -->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="categoryName" dir="rtl" name="categoryName" placeholder="نام دسته بندی" type="text" required />
+        </div>
+
+        <!-- دکمه ارسال -->
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">ثبت</button>
+        </div>
+    </form>
+</div>

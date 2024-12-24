@@ -1,0 +1,24 @@
+﻿<div class="container px-5 my-5">
+    <form method="post" asp-controller="User" asp-action="Register">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger" role="alert"> @TempData["ErrorMessage"] </div>
+        }
+        <div class="form-floating mb-3">
+            <input class="form-control" id="username" name="username" type="text" placeholder="نام کاربری" required />
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="password" type="text" name="password" placeholder="رمز عبور" required />
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="mobile" name="mobile" type="text" placeholder="تلفن همراه" />
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="email" type="email" name="email" placeholder="ایمیل" />
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">ثبت نام</button>
+        </div>
+
+    </form>
+</div>

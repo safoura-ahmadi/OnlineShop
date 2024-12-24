@@ -1,0 +1,18 @@
+﻿@using Domain.Entiteis
+@model Category
+<div class="container px-5 my-5">
+    <form method="post" asp-controller="Category" asp-action="EditCategory">
+        <!-- فیلد مخفی برای Id -->
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <!-- نام دسته بندی -->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="productName" dir="rtl" name="name" value="@Model.Name" type="text" required />
+            <label for="productName">نام دسته بندی</label>
+        </div>
+
+        <!-- دکمه ارسال -->
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">اعمال تغییرات</button>
+        </div>
+    </form>
+</div>

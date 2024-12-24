@@ -1,0 +1,39 @@
+﻿@using Domain.ModelView
+@model IEnumerable<GetCategoryDTO>
+@{
+    int counter = 1; // شمارنده که از 1 شروع می‌شود
+}
+<div class="table-responsive">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    <br />
+    <a asp-controller="Category" asp-action="Create" class="btn btn-primary">ایجاد دسته بندی جدید</a>
+    <br />
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th>شماره</th>
+                <th>نام دسته بندی</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                
+                <tr>
+                    <td>@counter</td>
+                    <td>@category.Name</td>
+                    <td><a asp-controller="Category" asp-action="Overview" class="btn btn-success" asp-route-id="@category.Id">پیش نمایش</a></td>
+                    <td><a asp-controller="Category" asp-action="Edit" class="btn btn-warning" asp-route-id="@category.Id">ویرایش</a></td>
+                    <td><a asp-controller="Category" asp-action="Delete" class="btn btn-danger" asp-route-id="@category.Id">حذف</a></td>
+                </tr>
+                counter++; // شمارنده افزایش پیدا می‌کند
+            }
+        </tbody>
+
+    </table>
+</div>
